@@ -53,7 +53,7 @@
                 "name": "How do I export my catches?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Open Settings → Export to generate a file (CSV planned in a future update). Share or save it via the iOS share sheet."
+                    "text": "Open Settings → Export to generate a JSON file. Share or save it via the iOS share sheet. CSV export is planned for future updates."
                 }
             },
             {
@@ -69,7 +69,7 @@
                 "name": "What permissions are required?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Location (for GPS tagging entries) and Photos (for adding catch photos). The app works without them but some features will be limited."
+                    "text": "Location (for GPS tagging entries when you choose to add location) and Photos (for adding catch photos). The app works without them but some features will be limited. Location is only accessed when you explicitly tap 'Add Location' in the logbook."
                 }
             },
             {
@@ -86,6 +86,14 @@
                 "acceptedAnswer": {
                     "@type": "Answer",
                     "text": "Email drewcrichardson1999@gmail.com with steps to reproduce and screenshots if possible."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does the app include sample data?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, the app may include sample catch data for demonstration purposes. You can delete these entries like any other catch, or they will be replaced when you add your own data."
                 }
             }
         ]
@@ -469,7 +477,7 @@
                     </li>
                     <li class="faq-item">
                         <div class="faq-question">How do I export my catches?</div>
-                        <div class="faq-answer">Open Settings → Export to generate a file (CSV planned in a future update). Share or save it via the iOS share sheet.</div>
+                        <div class="faq-answer">Open Settings → Export to generate a JSON file. Share or save it via the iOS share sheet. CSV export is planned for future updates.</div>
                     </li>
                     <li class="faq-item">
                         <div class="faq-question">How do I import my data?</div>
@@ -477,7 +485,7 @@
                     </li>
                     <li class="faq-item">
                         <div class="faq-question">What permissions are required?</div>
-                        <div class="faq-answer">Location (for GPS tagging entries) and Photos (for adding catch photos). The app works without them but some features will be limited.</div>
+                        <div class="faq-answer">Location (for GPS tagging entries when you choose to add location) and Photos (for adding catch photos). The app works without them but some features will be limited. Location is only accessed when you explicitly tap 'Add Location' in the logbook.</div>
                     </li>
                     <li class="faq-item">
                         <div class="faq-question">How accurate are bite times?</div>
@@ -486,6 +494,10 @@
                     <li class="faq-item">
                         <div class="faq-question">How do I report a bug or request a feature?</div>
                         <div class="faq-answer">Email <a href="mailto:drewcrichardson1999@gmail.com" style="color: var(--accent-color);">drewcrichardson1999@gmail.com</a> with steps to reproduce and screenshots if possible.</div>
+                    </li>
+                    <li class="faq-item">
+                        <div class="faq-question">Does the app include sample data?</div>
+                        <div class="faq-answer">Yes, the app may include sample catch data for demonstration purposes. You can delete these entries like any other catch, or they will be replaced when you add your own data.</div>
                     </li>
                 </ul>
             </div>
@@ -524,13 +536,16 @@
                 <h2>Data & Privacy</h2>
                 
                 <h3>Offline-first</h3>
-                <p>No accounts, no cloud sync, no analytics.</p>
+                <p>No accounts, no cloud sync, no analytics. All astronomical calculations, bite window predictions, and data processing happen entirely on your device without any external API calls.</p>
                 
                 <h3>Local storage</h3>
-                <p>Species, weight, notes, timestamps, optional GPS tags, and optional photo references.</p>
+                <p>Species, weight, notes, timestamps, optional GPS tags, optional photo references, and bite window calculations.</p>
                 
                 <h3>Your control</h3>
                 <p>Export your data from Settings. Delete the app to remove local data.</p>
+                
+                <h3>Astronomical Calculations</h3>
+                <p>The app performs offline astronomical calculations for sun/moon positions and bite windows using your device's local date/time and location. No location data is sent to external services for these calculations. All solunar predictions are computed locally on your device.</p>
             </div>
         </section>
 
