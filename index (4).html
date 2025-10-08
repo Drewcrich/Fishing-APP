@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clinton Lake Fishing Almanac</title>
+    <meta name="description" content="Clinton Lake Fishing Almanac — solunar bite windows, personal logbook with optional GPS/photo tagging, and full offline support.">
+    <link rel="canonical" href="https://fishin.netlify.app/">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Clinton Lake Fishing Almanac">
+    <meta property="og:description" content="Clinton Lake Fishing Almanac — solunar bite windows, personal logbook with optional GPS/photo tagging, and full offline support.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://fishin.netlify.app/">
+    <meta name="theme-color" content="#1a1a1a">
+    
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Clinton Lake Fishing Almanac">
+    <meta name="twitter:description" content="Clinton Lake Fishing Almanac — solunar bite windows, personal logbook with optional GPS/photo tagging, and full offline support.">
+    
+    <!-- JSON-LD Privacy Policy Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "PrivacyPolicy",
+        "name": "Clinton Lake Fishing Almanac — Privacy Policy",
+        "url": "https://fishin.netlify.app/#privacy",
+        "dateModified": "2025-10-06",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Clinton Lake Fishing Almanac"
+        },
+        "inLanguage": "en"
+    }
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --bg-color: #1a1a1a;
+            --text-color: #e0e0e0;
+            --text-muted: #a0a0a0;
+            --accent-color: #4a9eff;
+            --accent-hover: #3a8eef;
+            --border-color: #333;
+            --card-bg: #2a2a2a;
+            --code-bg: #333;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            font-size: 16px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        .header {
+            position: sticky;
+            top: 0;
+            background-color: var(--bg-color);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 100;
+            padding: 1rem 0;
+        }
+        
+        .nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+        
+        .nav a {
+            color: var(--accent-color);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            transition: background-color 0.2s;
+        }
+        
+        .nav a:hover {
+            background-color: var(--card-bg);
+        }
+        
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 3rem 0;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .fish-icon {
+            width: 40px;
+            height: 40px;
+            fill: var(--accent-color);
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background-color: var(--accent-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: background-color 0.2s;
+            min-height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .btn:hover {
+            background-color: var(--accent-hover);
+        }
+        
+        .btn-secondary {
+            background-color: var(--card-bg);
+            color: var(--text-color);
+        }
+        
+        .btn-secondary:hover {
+            background-color: #3a3a3a;
+        }
+        
+        /* Section Styles */
+        .section {
+            padding: 3rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .section:last-child {
+            border-bottom: none;
+        }
+        
+        .section h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+        
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        @media (min-width: 768px) {
+            .features-grid {
+                grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            }
+        }
+        
+        .feature-card {
+            background-color: var(--card-bg);
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+        
+        .feature-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+        
+        .feature-note {
+            background-color: var(--code-bg);
+            padding: 1rem;
+            border-radius: 6px;
+            margin-top: 2rem;
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        /* FAQ */
+        .faq-item {
+            margin-bottom: 2rem;
+            background-color: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+        
+        .faq-question {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--accent-color);
+        }
+        
+        .faq-answer {
+            color: var(--text-muted);
+        }
+        
+        /* Privacy Policy */
+        .privacy-section {
+            margin-bottom: 2rem;
+        }
+        
+        .privacy-section h3 {
+            margin-bottom: 1rem;
+        }
+        
+        .privacy-section ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .privacy-section li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .privacy-date {
+            font-style: italic;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+        
+        blockquote {
+            background-color: var(--code-bg);
+            padding: 1rem;
+            border-left: 4px solid var(--accent-color);
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+        
+        /* Availability Note */
+        .availability-note {
+            background-color: var(--card-bg);
+            padding: 1rem;
+            border-radius: 6px;
+            margin: 1rem 0;
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        /* Contact */
+        .email-copy {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 1rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .copy-btn {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: background-color 0.2s;
+        }
+        
+        .copy-btn:hover {
+            background-color: #3a3a3a;
+        }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 2rem 0;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        
+        .footer-links {
+            margin-top: 1rem;
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section h2 {
+                font-size: 1.75rem;
+            }
+            
+            .nav {
+                font-size: 0.9rem;
+            }
+            
+            .btn {
+                padding: 0.875rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="#features">Features</a>
+                <a href="#faq">FAQ</a>
+                <a href="#privacy">Privacy</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>
+                    <svg class="fish-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2c-1.5 0-3 1-4 2.5C6.5 3 4.5 3 3 4c1.5 1 1.5 3 0 4 1.5 1 1.5 3 0 4 1.5 1 3.5 1 5 0 1 1.5 2.5 2.5 4 2.5s3-1 4-2.5c1.5 1 3.5 1 5 0-1.5-1-1.5-3 0-4-1.5-1-1.5-3 0-4-1.5-1-3.5-1-5 0C15 3 13.5 2 12 2zm0 2c.5 0 1 .5 1 1s-.5 1-1 1-1-.5-1-1 .5-1 1-1z"/>
+                    </svg>
+                    Clinton Lake Fishing Almanac
+                </h1>
+                <p>Solunar bite windows, personal logbook with optional GPS/photo tagging, and full offline support.</p>
+                <div class="hero-buttons">
+                    <a href="mailto:drewcrichardson1999@gmail.com" class="btn">Email Support</a>
+                    <a href="#privacy" class="btn btn-secondary">Privacy Policy</a>
+                </div>
+                
+                <div class="availability-note">
+                    <strong>Availability:</strong> iOS App Store submission planned. Timing subject to change.
+                </div>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section id="features" class="section">
+            <div class="container">
+                <h2>Features</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <h3>Solunar Bite Windows</h3>
+                        <p>See suggested "best times" based on sunrise, sunset, and moon phase.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Personal Logbook</h3>
+                        <p>Save catches with notes, optional GPS tagging, and optional photos.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Data Export & Import</h3>
+                        <p>Back up your logbook as a JSON file and restore it later.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Offline First</h3>
+                        <p>All core features work without internet. Sunrise/sunset may use an online source with a local fallback.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <h3>Unit Preferences</h3>
+                        <p>Choose pounds (lb) or kilograms (kg) for weight.</p>
+                    </div>
+                </div>
+                <div class="feature-note">
+                    <strong>Note:</strong> Location and Photos are optional. The app works without them.
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq" class="section">
+            <div class="container">
+                <h2>FAQ</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Does the app work offline?</div>
+                    <div class="faq-answer">Yes. All core features work offline. Sunrise/sunset may use an online source, with a local fallback if the network is unavailable.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Does the app track me or share data?</div>
+                    <div class="faq-answer">No. We don't include analytics or ads, and we don't share your personal data.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Can I back up my data?</div>
+                    <div class="faq-answer">Yes. Go to Settings → Export to create a JSON backup. Use Settings → Import to restore it.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Are Location or Photos required?</div>
+                    <div class="faq-answer">No. Both are optional. The app works without them.</div>
+                </div>
+                
+
+            </div>
+        </section>
+
+        <!-- Privacy Policy -->
+        <section id="privacy" class="section">
+            <div class="container">
+                <h2>Privacy Policy</h2>
+                <div class="privacy-date">Last updated: October 6, 2025</div>
+
+                <p>The <strong>Clinton Lake Fishing Almanac</strong> app is designed to store your fishing data <strong>locally on your device</strong>. We do not run servers for this app, we do not track you, and we do not share your data.</p>
+
+                <div class="privacy-section">
+                    <h3>What We Collect (On Your Device)</h3>
+                    <ul>
+                        <li><strong>Catch Photos (optional)</strong>: References (URIs) to photos you attach to entries.</li>
+                        <li><strong>Fishing Notes</strong>: Text you add to your logbook.</li>
+                        <li><strong>Location Data (optional)</strong>: GPS coordinates when you choose to tag a catch.</li>
+                        <li><strong>Preferences</strong>: Settings like pounds vs. kilograms.</li>
+                    </ul>
+                    <blockquote>All information above is stored locally on your device. We do not collect it on our servers.</blockquote>
+                </div>
+
+                <div class="privacy-section">
+                    <h3>Why We Use This Data</h3>
+                    <ul>
+                        <li><strong>Logbook</strong>: Save and review your catches.</li>
+                        <li><strong>Optional GPS Tagging</strong>: Remember where a catch happened.</li>
+                        <li><strong>Bite Windows</strong>: Show suggested times using sunrise/sunset and moon phase.</li>
+                        <li><strong>Preferences</strong>: Keep your chosen units and settings.</li>
+                    </ul>
+                </div>
+
+                <div class="privacy-section">
+                    <h3>Permissions</h3>
+                    <ul>
+                        <li><strong>Location (Foreground Only, Optional)</strong>: Requested only when you choose to tag a catch location.</li>
+                        <li><strong>Photos/Library (Optional)</strong>: Requested only when you choose to attach a photo.</li>
+                    </ul>
+                    <p>The app works without granting these permissions.</p>
+                </div>
+
+                <div class="privacy-section">
+                    <h3>Online Services We Call</h3>
+                    <p><strong>Open-Meteo (Sunrise/Sunset)</strong>: We may query sunrise/sunset using your coordinates and date to improve accuracy. Requests are anonymous. If the network is unavailable, the app uses a local fallback calculation.</p>
+                </div>
+
+                <div class="privacy-section">
+                    <h3>Data Sharing and Tracking</h3>
+                    <ul>
+                        <li><strong>We do not share</strong> your personal data with third parties.</li>
+                        <li><strong>We do not sell</strong> your data.</li>
+                        <li><strong>We do not track</strong> you across apps or websites.</li>
+                        <li><strong>No analytics or advertising SDKs</strong> are included.</li>
+                    </ul>
+                </div>
+
+                <div class="privacy-section">
+                    <h3>Your Control</h3>
+                    <ul>
+                        <li><strong>Export</strong>: Create a JSON backup of your logbook in Settings.</li>
+                        <li><strong>Import</strong>: Restore a JSON backup in Settings.</li>
+                        <li><strong>Delete Individual Entries</strong>: Remove any catch from your logbook.</li>
+                        <li><strong>Delete All Data</strong>: Uninstalling the app removes local data from your device.</li>
+                    </ul>
+                </div>
+
+                <div class="privacy-section">
+                    <h3>Children</h3>
+                    <p>This app is intended for general audiences and is <strong>not directed to children under 13</strong>. We do not knowingly collect personal information from children.</p>
+                </div>
+
+                <div class="privacy-section">
+                    <h3>Security</h3>
+                    <p>Your data remains on your device. Avoid sharing exported backups publicly.</p>
+                </div>
+
+                <div class="privacy-section">
+                    <h3>Contact</h3>
+                    <p>Questions or requests? Email <a href="mailto:drewcrichardson1999@gmail.com" style="color: var(--accent-color);">drewcrichardson1999@gmail.com</a>.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact" class="section">
+            <div class="container">
+                <h2>Contact</h2>
+                
+                <div class="email-copy">
+                    <strong>Email:</strong> 
+                    <a href="mailto:drewcrichardson1999@gmail.com" style="color: var(--accent-color);">drewcrichardson1999@gmail.com</a>
+                    <button class="copy-btn" onclick="copyEmail()">Copy</button>
+                </div>
+                
+                <p><strong>Please include:</strong> device model, iOS version, app version, steps to reproduce, and screenshots.</p>
+                
+                <p style="color: var(--text-muted); margin-top: 1rem;">We usually reply within 1–2 business days.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 Clinton Lake Fishing Almanac • No tracking</p>
+            <div class="footer-links">
+                <a href="mailto:drewcrichardson1999@gmail.com">Email Support</a>
+                <a href="#privacy">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function copyEmail() {
+            const email = 'drewcrichardson1999@gmail.com';
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(email).then(() => {
+                    const btn = event.target;
+                    const originalText = btn.textContent;
+                    btn.textContent = 'Copied!';
+                    setTimeout(() => {
+                        btn.textContent = originalText;
+                    }, 2000);
+                });
+            } else {
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = email;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                
+                const btn = event.target;
+                const originalText = btn.textContent;
+                btn.textContent = 'Copied!';
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                }, 2000);
+            }
+        }
+    </script>
+</body>
+</html>
