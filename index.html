@@ -3,100 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clinton Lake Fishing Almanac — Support</title>
-    <meta name="description" content="Support for Clinton Lake Fishing Almanac — offline bite times, logbook, and privacy-first.">
+    <title>Clinton Lake Fishing Almanac</title>
+    <meta name="description" content="Clinton Lake Fishing Almanac — solunar bite windows, personal logbook with optional GPS/photo tagging, and full offline support.">
+    <link rel="canonical" href="https://fishin.netlify.app/">
     
     <!-- Open Graph -->
-    <meta property="og:title" content="Clinton Lake Fishing Almanac — Support">
-    <meta property="og:description" content="Support for Clinton Lake Fishing Almanac — offline bite times, logbook, and privacy-first.">
+    <meta property="og:title" content="Clinton Lake Fishing Almanac">
+    <meta property="og:description" content="Clinton Lake Fishing Almanac — solunar bite windows, personal logbook with optional GPS/photo tagging, and full offline support.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="">
+    <meta property="og:url" content="https://fishin.netlify.app/">
     <meta name="theme-color" content="#1a1a1a">
     
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Clinton Lake Fishing Almanac — Support">
-    <meta name="twitter:description" content="Support for Clinton Lake Fishing Almanac — offline bite times, logbook, and privacy-first.">
+    <meta name="twitter:title" content="Clinton Lake Fishing Almanac">
+    <meta name="twitter:description" content="Clinton Lake Fishing Almanac — solunar bite windows, personal logbook with optional GPS/photo tagging, and full offline support.">
     
-    <!-- JSON-LD FAQ Schema -->
+    <!-- JSON-LD Privacy Policy Schema -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-            {
-                "@type": "Question",
-                "name": "Does the app work offline?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Yes. All features (bite windows, logbook, sparkline stats) work offline."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "What data do you collect?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "None. We don't track you and we don't send your data anywhere."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Where is my data stored?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "On your device only (AsyncStorage). Photos stay in your Photos library; the app stores references."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "How do I export my catches?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Open Settings → Export to generate a JSON file. Share or save it via the iOS share sheet. CSV export is planned for future updates."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "How do I import my data?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Open Settings → Import and choose a backup file you previously exported."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "What permissions are required?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Location (for GPS tagging entries when you choose to add location) and Photos (for adding catch photos). The app works without them but some features will be limited. Location is only accessed when you explicitly tap 'Add Location' in the logbook."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "How accurate are bite times?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "They're heuristic windows (sunrise/sunset + moon phase). Conditions on the water vary; always use local knowledge."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "How do I report a bug or request a feature?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Email drewcrichardson1999@gmail.com with steps to reproduce and screenshots if possible."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Does the app include sample data?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Yes, the app may include sample catch data for demonstration purposes. You can delete these entries like any other catch, or they will be replaced when you add your own data."
-                }
-            }
-        ]
+        "@type": "PrivacyPolicy",
+        "name": "Clinton Lake Fishing Almanac — Privacy Policy",
+        "url": "https://fishin.netlify.app/#privacy",
+        "dateModified": "2025-10-06",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Clinton Lake Fishing Almanac"
+        },
+        "inLanguage": "en"
     }
     </script>
     
@@ -246,37 +181,41 @@
             color: var(--accent-color);
         }
         
-        /* Quick Help Cards */
-        .help-cards {
+        /* Features Grid */
+        .features-grid {
             display: grid;
-            gap: 1.5rem;
+            gap: 2rem;
             margin-bottom: 2rem;
         }
         
         @media (min-width: 768px) {
-            .help-cards {
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            .features-grid {
+                grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             }
         }
         
-        .help-card {
+        .feature-card {
             background-color: var(--card-bg);
-            padding: 1.5rem;
+            padding: 2rem;
             border-radius: 8px;
             border: 1px solid var(--border-color);
         }
         
-        .help-card h3 {
+        .feature-card h3 {
             font-size: 1.25rem;
             margin-bottom: 1rem;
             color: var(--accent-color);
         }
         
-        /* FAQ */
-        .faq-list {
-            list-style: none;
+        .feature-note {
+            background-color: var(--code-bg);
+            padding: 1rem;
+            border-radius: 6px;
+            margin-top: 2rem;
+            border-left: 4px solid var(--accent-color);
         }
         
+        /* FAQ */
         .faq-item {
             margin-bottom: 2rem;
             background-color: var(--card-bg);
@@ -296,40 +235,45 @@
             color: var(--text-muted);
         }
         
-        /* Troubleshooting */
-        .troubleshooting-steps {
-            background-color: var(--card-bg);
-            padding: 1.5rem;
-            border-radius: 8px;
-            border: 1px solid var(--border-color);
-            margin-bottom: 1.5rem;
+        /* Privacy Policy */
+        .privacy-section {
+            margin-bottom: 2rem;
         }
         
-        .troubleshooting-steps ol {
-            padding-left: 1.5rem;
+        .privacy-section h3 {
+            margin-bottom: 1rem;
         }
         
-        .troubleshooting-steps li {
+        .privacy-section ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .privacy-section li {
             margin-bottom: 0.5rem;
         }
         
-        /* Code blocks */
-        code {
-            background-color: var(--code-bg);
-            padding: 0.25rem 0.5rem;
-            border-radius: 4px;
-            font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
-            font-size: 0.9em;
+        .privacy-date {
+            font-style: italic;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
         }
         
-        .code-block {
+        blockquote {
             background-color: var(--code-bg);
+            padding: 1rem;
+            border-left: 4px solid var(--accent-color);
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+        
+        /* Availability Note */
+        .availability-note {
+            background-color: var(--card-bg);
             padding: 1rem;
             border-radius: 6px;
             margin: 1rem 0;
-            font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
-            font-size: 0.9em;
-            overflow-x: auto;
+            border-left: 4px solid var(--accent-color);
         }
         
         /* Contact */
@@ -409,9 +353,8 @@
     <header class="header">
         <div class="container">
             <nav class="nav">
-                <a href="#help">Help</a>
+                <a href="#features">Features</a>
                 <a href="#faq">FAQ</a>
-                <a href="#troubleshooting">Troubleshooting</a>
                 <a href="#privacy">Privacy</a>
                 <a href="#contact">Contact</a>
             </nav>
@@ -428,32 +371,47 @@
                     </svg>
                     Clinton Lake Fishing Almanac
                 </h1>
-                <p>Plan bite times & log trips — fully offline.</p>
+                <p>Solunar bite windows, personal logbook with optional GPS/photo tagging, and full offline support.</p>
                 <div class="hero-buttons">
                     <a href="mailto:drewcrichardson1999@gmail.com" class="btn">Email Support</a>
-                    <a href="#privacy" class="btn btn-secondary">Privacy</a>
+                    <a href="#privacy" class="btn btn-secondary">Privacy Policy</a>
+                </div>
+                
+                <div class="availability-note">
+                    <strong>Availability:</strong> iOS App Store submission planned. Timing subject to change.
                 </div>
             </div>
         </section>
 
-        <!-- Quick Help -->
-        <section id="help" class="section">
+        <!-- Features -->
+        <section id="features" class="section">
             <div class="container">
-                <h2>Quick Help</h2>
-                <div class="help-cards">
-                    <div class="help-card">
-                        <h3>No bite windows showing?</h3>
-                        <p>Set your device time correctly. Bite windows are calculated offline from your local date/time and location.</p>
+                <h2>Features</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <h3>Solunar Bite Windows</h3>
+                        <p>See suggested "best times" based on sunrise, sunset, and moon phase.</p>
                     </div>
-                    <div class="help-card">
-                        <h3>Location missing on log entries?</h3>
-                        <p>Open Settings → Privacy & Security → Location Services → Clinton Lake Fishing Almanac → set to <strong>While Using the App</strong>.</p>
-                        <p>Then reopen the app and add a new entry.</p>
+                    <div class="feature-card">
+                        <h3>Personal Logbook</h3>
+                        <p>Save catches with notes, optional GPS tagging, and optional photos.</p>
                     </div>
-                    <div class="help-card">
-                        <h3>Photos won't attach?</h3>
-                        <p>Allow Photos access: Settings → Privacy & Security → Photos → Clinton Lake Fishing Almanac → <strong>Add Photos Only</strong> or <strong>Full Access</strong>.</p>
+                    <div class="feature-card">
+                        <h3>Data Export & Import</h3>
+                        <p>Back up your logbook as a JSON file and restore it later.</p>
                     </div>
+                    <div class="feature-card">
+                        <h3>Offline First</h3>
+                        <p>All core features work without internet. Sunrise/sunset may use an online source with a local fallback.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <h3>Unit Preferences</h3>
+                        <p>Choose pounds (lb) or kilograms (kg) for weight.</p>
+                    </div>
+                </div>
+                <div class="feature-note">
+                    <strong>Note:</strong> Location and Photos are optional. The app works without them.
                 </div>
             </div>
         </section>
@@ -462,90 +420,108 @@
         <section id="faq" class="section">
             <div class="container">
                 <h2>FAQ</h2>
-                <ul class="faq-list">
-                    <li class="faq-item">
-                        <div class="faq-question">Does the app work offline?</div>
-                        <div class="faq-answer">Yes. All features (bite windows, logbook, sparkline stats) work offline.</div>
-                    </li>
-                    <li class="faq-item">
-                        <div class="faq-question">What data do you collect?</div>
-                        <div class="faq-answer">None. We don't track you and we don't send your data anywhere.</div>
-                    </li>
-                    <li class="faq-item">
-                        <div class="faq-question">Where is my data stored?</div>
-                        <div class="faq-answer">On your device only (AsyncStorage). Photos stay in your Photos library; the app stores references.</div>
-                    </li>
-                    <li class="faq-item">
-                        <div class="faq-question">How do I export my catches?</div>
-                        <div class="faq-answer">Open Settings → Export to generate a JSON file. Share or save it via the iOS share sheet. CSV export is planned for future updates.</div>
-                    </li>
-                    <li class="faq-item">
-                        <div class="faq-question">How do I import my data?</div>
-                        <div class="faq-answer">Open Settings → Import and choose a backup file you previously exported.</div>
-                    </li>
-                    <li class="faq-item">
-                        <div class="faq-question">What permissions are required?</div>
-                        <div class="faq-answer">Location (for GPS tagging entries when you choose to add location) and Photos (for adding catch photos). The app works without them but some features will be limited. Location is only accessed when you explicitly tap 'Add Location' in the logbook.</div>
-                    </li>
-                    <li class="faq-item">
-                        <div class="faq-question">How accurate are bite times?</div>
-                        <div class="faq-answer">They're heuristic windows (sunrise/sunset + moon phase). Conditions on the water vary; always use local knowledge.</div>
-                    </li>
-                    <li class="faq-item">
-                        <div class="faq-question">How do I report a bug or request a feature?</div>
-                        <div class="faq-answer">Email <a href="mailto:drewcrichardson1999@gmail.com" style="color: var(--accent-color);">drewcrichardson1999@gmail.com</a> with steps to reproduce and screenshots if possible.</div>
-                    </li>
-                    <li class="faq-item">
-                        <div class="faq-question">Does the app include sample data?</div>
-                        <div class="faq-answer">Yes, the app may include sample catch data for demonstration purposes. You can delete these entries like any other catch, or they will be replaced when you add your own data.</div>
-                    </li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- Troubleshooting -->
-        <section id="troubleshooting" class="section">
-            <div class="container">
-                <h2>Troubleshooting</h2>
                 
-                <h3>Reset permissions</h3>
-                <div class="troubleshooting-steps">
-                    <p><strong>Location:</strong> Settings → Privacy & Security → Location Services → Clinton Lake Fishing Almanac → While Using the App.</p>
-                    <p><strong>Photos:</strong> Settings → Privacy & Security → Photos → Clinton Lake Fishing Almanac → select access level.</p>
+                <div class="faq-item">
+                    <div class="faq-question">Does the app work offline?</div>
+                    <div class="faq-answer">Yes. All core features work offline. Sunrise/sunset may use an online source, with a local fallback if the network is unavailable.</div>
                 </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Does the app track me or share data?</div>
+                    <div class="faq-answer">No. We don't include analytics or ads, and we don't share your personal data.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Can I back up my data?</div>
+                    <div class="faq-answer">Yes. Go to Settings → Export to create a JSON backup. Use Settings → Import to restore it.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Are Location or Photos required?</div>
+                    <div class="faq-answer">No. Both are optional. The app works without them.</div>
+                </div>
+                
 
-                <h3>If data looks missing</h3>
-                <div class="troubleshooting-steps">
-                    <ol>
-                        <li>Make sure you didn't uninstall the app (that deletes local data).</li>
-                        <li>Check Settings → Import to restore from your backup.</li>
-                    </ol>
-                </div>
-
-                <h3>Still stuck?</h3>
-                <div class="troubleshooting-steps">
-                    <p>Email support with your iPhone model, iOS version, app version (see Settings → Diagnostics), and a short video or screenshots.</p>
-                    <div class="code-block">Open Settings → Diagnostics</div>
-                </div>
             </div>
         </section>
 
-        <!-- Data & Privacy -->
+        <!-- Privacy Policy -->
         <section id="privacy" class="section">
             <div class="container">
-                <h2>Data & Privacy</h2>
-                
-                <h3>Offline-first</h3>
-                <p>No accounts, no cloud sync, no analytics. All astronomical calculations, bite window predictions, and data processing happen entirely on your device without any external API calls.</p>
-                
-                <h3>Local storage</h3>
-                <p>Species, weight, notes, timestamps, optional GPS tags, optional photo references, and bite window calculations.</p>
-                
-                <h3>Your control</h3>
-                <p>Export your data from Settings. Delete the app to remove local data.</p>
-                
-                <h3>Astronomical Calculations</h3>
-                <p>The app performs offline astronomical calculations for sun/moon positions and bite windows using your device's local date/time and location. No location data is sent to external services for these calculations. All solunar predictions are computed locally on your device.</p>
+                <h2>Privacy Policy</h2>
+                <div class="privacy-date">Last updated: October 6, 2025</div>
+
+                <p>The <strong>Clinton Lake Fishing Almanac</strong> app is designed to store your fishing data <strong>locally on your device</strong>. We do not run servers for this app, we do not track you, and we do not share your data.</p>
+
+                <div class="privacy-section">
+                    <h3>What We Collect (On Your Device)</h3>
+                    <ul>
+                        <li><strong>Catch Photos (optional)</strong>: References (URIs) to photos you attach to entries.</li>
+                        <li><strong>Fishing Notes</strong>: Text you add to your logbook.</li>
+                        <li><strong>Location Data (optional)</strong>: GPS coordinates when you choose to tag a catch.</li>
+                        <li><strong>Preferences</strong>: Settings like pounds vs. kilograms.</li>
+                    </ul>
+                    <blockquote>All information above is stored locally on your device. We do not collect it on our servers.</blockquote>
+                </div>
+
+                <div class="privacy-section">
+                    <h3>Why We Use This Data</h3>
+                    <ul>
+                        <li><strong>Logbook</strong>: Save and review your catches.</li>
+                        <li><strong>Optional GPS Tagging</strong>: Remember where a catch happened.</li>
+                        <li><strong>Bite Windows</strong>: Show suggested times using sunrise/sunset and moon phase.</li>
+                        <li><strong>Preferences</strong>: Keep your chosen units and settings.</li>
+                    </ul>
+                </div>
+
+                <div class="privacy-section">
+                    <h3>Permissions</h3>
+                    <ul>
+                        <li><strong>Location (Foreground Only, Optional)</strong>: Requested only when you choose to tag a catch location.</li>
+                        <li><strong>Photos/Library (Optional)</strong>: Requested only when you choose to attach a photo.</li>
+                    </ul>
+                    <p>The app works without granting these permissions.</p>
+                </div>
+
+                <div class="privacy-section">
+                    <h3>Online Services We Call</h3>
+                    <p><strong>Open-Meteo (Sunrise/Sunset)</strong>: We may query sunrise/sunset using your coordinates and date to improve accuracy. Requests are anonymous. If the network is unavailable, the app uses a local fallback calculation.</p>
+                </div>
+
+                <div class="privacy-section">
+                    <h3>Data Sharing and Tracking</h3>
+                    <ul>
+                        <li><strong>We do not share</strong> your personal data with third parties.</li>
+                        <li><strong>We do not sell</strong> your data.</li>
+                        <li><strong>We do not track</strong> you across apps or websites.</li>
+                        <li><strong>No analytics or advertising SDKs</strong> are included.</li>
+                    </ul>
+                </div>
+
+                <div class="privacy-section">
+                    <h3>Your Control</h3>
+                    <ul>
+                        <li><strong>Export</strong>: Create a JSON backup of your logbook in Settings.</li>
+                        <li><strong>Import</strong>: Restore a JSON backup in Settings.</li>
+                        <li><strong>Delete Individual Entries</strong>: Remove any catch from your logbook.</li>
+                        <li><strong>Delete All Data</strong>: Uninstalling the app removes local data from your device.</li>
+                    </ul>
+                </div>
+
+                <div class="privacy-section">
+                    <h3>Children</h3>
+                    <p>This app is intended for general audiences and is <strong>not directed to children under 13</strong>. We do not knowingly collect personal information from children.</p>
+                </div>
+
+                <div class="privacy-section">
+                    <h3>Security</h3>
+                    <p>Your data remains on your device. Avoid sharing exported backups publicly.</p>
+                </div>
+
+                <div class="privacy-section">
+                    <h3>Contact</h3>
+                    <p>Questions or requests? Email <a href="mailto:drewcrichardson1999@gmail.com" style="color: var(--accent-color);">drewcrichardson1999@gmail.com</a>.</p>
+                </div>
             </div>
         </section>
 
@@ -565,27 +541,15 @@
                 <p style="color: var(--text-muted); margin-top: 1rem;">We usually reply within 1–2 business days.</p>
             </div>
         </section>
-
-        <!-- Changelog -->
-        <section class="section">
-            <div class="container">
-                <h2>Changelog</h2>
-                
-                <div class="faq-item">
-                    <div class="faq-question">v1.0 — Initial release</div>
-                    <div class="faq-answer">Today view with sunrise/sunset & moon %, three bite windows, Logbook with photo & GPS tag, Settings with units/export/import preview, sparkline stats, dark theme.</div>
-                </div>
-            </div>
-        </section>
     </main>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>© 2025 Andrew Richardson • No tracking</p>
+            <p>© 2025 Clinton Lake Fishing Almanac • No tracking</p>
             <div class="footer-links">
                 <a href="mailto:drewcrichardson1999@gmail.com">Email Support</a>
-                <a href="#" style="color: var(--text-muted);">App Store (Coming Soon)</a>
+                <a href="#privacy">Privacy Policy</a>
             </div>
         </div>
     </footer>
